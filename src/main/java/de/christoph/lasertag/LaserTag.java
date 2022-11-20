@@ -1,5 +1,6 @@
 package de.christoph.lasertag;
 
+import de.christoph.lasertag.setup.SetupCommand;
 import de.christoph.lasertag.state.StateManager;
 import de.christoph.lasertag.state.lobby.LobbyListeners;
 import org.bukkit.Bukkit;
@@ -24,6 +25,11 @@ public class LaserTag extends JavaPlugin {
         stateManager = new StateManager();
         stateManager.setLobbyState();
         registerListeners(Bukkit.getPluginManager());
+        registerCommands();
+    }
+
+    private void registerCommands() {
+        getCommand("setup").setExecutor(new SetupCommand());
     }
 
     private void registerListeners(PluginManager pluginManager) {
