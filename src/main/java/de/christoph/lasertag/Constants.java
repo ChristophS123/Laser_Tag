@@ -11,6 +11,7 @@ public class Constants {
     public static final String SETUP_SPAWN = "§athe spawn is now on your location.";
     public static final String JOIN_MESSAGE = "§7[§a+§7] §a%player%";
     public static final String QUIT_MESSAGE = "§7[§c-§7] §c%player%";
+    public static final String SETUP_NOT_FINISHED = "§cPlease finish the setup.";
 
     public static final int LOBBY_COUNTDOWN_SECONDS = 10;
 

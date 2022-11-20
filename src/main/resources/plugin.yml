@@ -2,3 +2,6 @@ name: LaserTag
 author: Christoph
 version: 1.0
 main: de.christoph.lasertag.LaserTag
+
+commands:
+  setup:
