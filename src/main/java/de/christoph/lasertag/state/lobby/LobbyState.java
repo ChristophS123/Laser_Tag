@@ -2,6 +2,7 @@ package de.christoph.lasertag.state.lobby;
 
 import de.christoph.lasertag.Constants;
 import de.christoph.lasertag.LaserTag;
+import de.christoph.lasertag.state.game.GameState;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -33,7 +34,8 @@ public class LobbyState {
     public void closeLobbyState() {
         cancelLobbyCountdown();
         System.out.println("State Changed");
-        //TODO: Start Game State
+        GameState gameState = new GameState();
+        LaserTag.getPlugin().getStateManager().setGameState(gameState);
     }
 
 }
