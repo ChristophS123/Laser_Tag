@@ -13,9 +13,12 @@ public class Constants {
     public static final String QUIT_MESSAGE = "§7[§c-§7] §c%player%";
     public static final String SETUP_NOT_FINISHED = "§cPlease finish the setup.";
     public static final String GAME_START = "§4§lGame has started";
+    public static final String PROTECTION_TIME_END = "§aThe protection time ends in §6%time% seconds§a.";
+    public static final String LOBBY_TIME_END = "§aThe game starts in §6%time% seconds§a.";
 
     public static final int LOBBY_COUNTDOWN_SECONDS = 10;
     public static final int GAME_TIME = 20;
+    public static final int PROTECTION_TIME = 10;
 
     public static final int MIN_PLAYERS = 2;
     public static final int MAY_PLAYERS = 10;

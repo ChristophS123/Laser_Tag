@@ -23,24 +23,40 @@ public class GameState {
                 all.teleport(LocationUtil.getLocation("gamespawn", LaserTag.getPlugin()));
             } else
                 Bukkit.getConsoleSender().sendMessage(Constants.PREFIX + Constants.SETUP_NOT_FINISHED);
-            for(int i = 0; i < 150; i++)
-                all.sendMessage("");
-            all.sendMessage(Constants.GAME_START);
-            all.playSound(all.getLocation(), Sound.ENDERDRAGON_GROWL, 1, 3);
         }
         for(Player spectator : LaserTag.spectator)
             spectator.setGameMode(GameMode.SPECTATOR);
         protectionCountdown = new ProtectionCountdown();
+    }
+
+    public void endProtectionTime() {
+        protectionCountdown = null;
+        for(Player all : Bukkit.getOnlinePlayers()) {
+            for (int i = 0; i < 150; i++)
+                all.sendMessage("");
+            all.sendMessage(Constants.GAME_START);
+            all.playSound(all.getLocation(), Sound.ENDERDRAGON_GROWL, 1, 3);
+        }
         gameCountdown = new GameCountdown();
+    }
+
+    public void checkForEarlyEnd() {
+        if(LaserTag.gamePlayers.size() < Constants.MIN_PLAYERS) {
+            stopGame();
+        }
     }
 
     public void stopGame() {
         stopCountdown();
-        System.out.println("Gamestate stop");
+        //TODO: Start End State
     }
 
     private void stopCountdown() {
+        Bukkit.getScheduler().cancelTask(LaserTag.getPlugin().getStateManager().getGameState().gameCountdown.getTaskID());
+    }
 
+    public ProtectionCountdown getProtectionCountdown() {
+        return protectionCountdown;
     }
 
 }

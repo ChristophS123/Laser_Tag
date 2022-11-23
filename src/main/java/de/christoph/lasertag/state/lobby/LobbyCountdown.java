@@ -26,7 +26,7 @@ public class LobbyCountdown {
                 case 2:
                 case 1:
                     for(Player gamePlayer : Bukkit.getOnlinePlayers()) {
-                        gamePlayer.sendMessage(Constants.PREFIX + "§aThe Game starts in §6" + time + " Second(s)§a.");
+                        gamePlayer.sendMessage(Constants.PREFIX + Constants.LOBBY_TIME_END.replace("%time%", "" + time));
                         gamePlayer.playSound(gamePlayer.getLocation(), Sound.NOTE_PLING, 1, 3);
                     }
                     break;

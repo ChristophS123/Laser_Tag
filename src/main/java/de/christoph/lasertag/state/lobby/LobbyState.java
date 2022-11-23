@@ -33,7 +33,6 @@ public class LobbyState {
 
     public void closeLobbyState() {
         cancelLobbyCountdown();
-        System.out.println("State Changed");
         GameState gameState = new GameState();
         LaserTag.getPlugin().getStateManager().setGameState(gameState);
     }

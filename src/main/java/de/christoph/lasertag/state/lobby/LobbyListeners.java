@@ -16,6 +16,7 @@ public class LobbyListeners implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         if(!LaserTag.getPlugin().getStateManager().getCurrentState().equals(State.LOBBY))
             return;
+        event.getPlayer().getInventory().clear();
         event.setJoinMessage(Constants.JOIN_MESSAGE.replace("%player%", event.getPlayer().getName()));
         if(LaserTag.getPlugin().getConfig().contains("lobbyspawn.World")) {
             event.getPlayer().teleport(LocationUtil.getLocation("lobbyspawn", LaserTag.getPlugin()));
