@@ -23,6 +23,7 @@ public class StateManager {
     }
 
     public void setGameState(GameState gameState) {
+        currentState = State.GAME;
         this.gameState = gameState;
     }
 

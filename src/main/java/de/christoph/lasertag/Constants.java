@@ -15,6 +15,11 @@ public class Constants {
     public static final String GAME_START = "§4§lGame has started";
     public static final String PROTECTION_TIME_END = "§aThe protection time ends in §6%time% seconds§a.";
     public static final String LOBBY_TIME_END = "§aThe game starts in §6%time% seconds§a.";
+    public static final String GOT_KILLED = "§cYou have been killed by §6%player%";
+    public static final String KILLED_PLAYER = "§aYou have killed the player §6%player%";
+
+    public static final String LASER_WEAPON_NAME = "§c§lWeapon";
+    public static final String PROJECTILE_CUSTOM_NAME = "laserWeaponProjectile";
 
     public static final int LOBBY_COUNTDOWN_SECONDS = 10;
     public static final int GAME_TIME = 20;

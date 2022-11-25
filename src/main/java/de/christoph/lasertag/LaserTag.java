@@ -2,6 +2,8 @@ package de.christoph.lasertag;
 
 import de.christoph.lasertag.setup.SetupCommand;
 import de.christoph.lasertag.state.StateManager;
+import de.christoph.lasertag.state.game.GameListeners;
+import de.christoph.lasertag.state.game.weapon.LaserWeapon;
 import de.christoph.lasertag.state.lobby.LobbyListeners;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -34,6 +36,8 @@ public class LaserTag extends JavaPlugin {
 
     private void registerListeners(PluginManager pluginManager) {
         pluginManager.registerEvents(new LobbyListeners(), this);
+        pluginManager.registerEvents(new GameListeners(), this);
+        pluginManager.registerEvents(new LaserWeapon(), this);
     }
 
     public static LaserTag getPlugin() {

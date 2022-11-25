@@ -2,6 +2,7 @@ package de.christoph.lasertag.state.game;
 
 import de.christoph.lasertag.Constants;
 import de.christoph.lasertag.LaserTag;
+import de.christoph.lasertag.state.game.weapon.LaserWeapon;
 import de.christoph.lasertag.utils.LocationUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -21,6 +22,7 @@ public class GameState {
         for(Player all : Bukkit.getOnlinePlayers()) {
             if(LaserTag.getPlugin().getConfig().contains("gamespawn.World")) {
                 all.teleport(LocationUtil.getLocation("gamespawn", LaserTag.getPlugin()));
+                LaserWeapon.getLaserWeapon(all);
             } else
                 Bukkit.getConsoleSender().sendMessage(Constants.PREFIX + Constants.SETUP_NOT_FINISHED);
         }
