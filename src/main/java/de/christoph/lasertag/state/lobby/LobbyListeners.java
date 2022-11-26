@@ -2,9 +2,11 @@ package de.christoph.lasertag.state.lobby;
 
 import de.christoph.lasertag.Constants;
 import de.christoph.lasertag.LaserTag;
+import de.christoph.lasertag.scoreboard.LaserTagBoard;
 import de.christoph.lasertag.state.State;
 import de.christoph.lasertag.utils.LocationUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -18,6 +20,7 @@ public class LobbyListeners implements Listener {
             return;
         event.getPlayer().getInventory().clear();
         event.setJoinMessage(Constants.JOIN_MESSAGE.replace("%player%", event.getPlayer().getName()));
+        setBoard(event.getPlayer());
         if(LaserTag.getPlugin().getConfig().contains("lobbyspawn.World")) {
             event.getPlayer().teleport(LocationUtil.getLocation("lobbyspawn", LaserTag.getPlugin()));
         } else
@@ -27,6 +30,18 @@ public class LobbyListeners implements Listener {
             LaserTag.getPlugin().getStateManager().getLobbyState().checkForCountdownStart();
         } else {
             LaserTag.spectator.add(event.getPlayer());
+        }
+    }
+
+    private void setBoard(Player player) {
+        if(LaserTag.getPlugin().getStateManager().getLobbyState().getLobbyCountdown() == null)
+            LaserTagBoard.setLobbyBoard(player, Constants.LOBBY_COUNTDOWN_SECONDS);
+        else {
+            LaserTagBoard.setLobbyBoard(player, LaserTag.getPlugin()
+                    .getStateManager()
+                    .getLobbyState()
+                    .getLobbyCountdown()
+                    .getTime());
         }
     }
 

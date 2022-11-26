@@ -1,9 +1,11 @@
 package de.christoph.lasertag.state.game;
 
 import de.christoph.lasertag.LaserTag;
+import de.christoph.lasertag.scoreboard.LaserTagBoard;
 import de.christoph.lasertag.state.State;
 import de.christoph.lasertag.state.game.weapon.LaserWeapon;
 import org.bukkit.GameMode;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -18,8 +20,20 @@ public class GameListeners implements Listener {
         if(!LaserTag.getPlugin().getStateManager().getCurrentState().equals(State.GAME))
             return;
         event.setJoinMessage("");
+        if(LaserTag.getPlugin().getStateManager().getGameState().getProtectionCountdown() != null)
+            setProtectionBoard(event.getPlayer());
+        else
+            setGameBoard(event.getPlayer());
         event.getPlayer().setGameMode(GameMode.SPECTATOR);
         LaserTag.spectator.add(event.getPlayer());
+    }
+
+    private void setGameBoard(Player player) {
+        LaserTagBoard.setGameBoard(player, LaserTag.getPlugin().getStateManager().getGameState().getGameCountdown().getTime());
+    }
+
+    private void setProtectionBoard(Player player) {
+        LaserTagBoard.setProtectionBoard(player, LaserTag.getPlugin().getStateManager().getGameState().getProtectionCountdown().getTime());
     }
 
     @EventHandler

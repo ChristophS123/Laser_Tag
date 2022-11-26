@@ -2,6 +2,7 @@ package de.christoph.lasertag.state.lobby;
 
 import de.christoph.lasertag.Constants;
 import de.christoph.lasertag.LaserTag;
+import de.christoph.lasertag.scoreboard.LaserTagBoard;
 import de.christoph.lasertag.state.StateManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
@@ -36,14 +37,20 @@ public class LobbyCountdown {
                 default:
                     break;
             }
-            for(Player gamePlayer : Bukkit.getOnlinePlayers())
+            for(Player gamePlayer : Bukkit.getOnlinePlayers()) {
                 gamePlayer.setLevel(time);
+                LaserTagBoard.setLobbyBoard(gamePlayer, time);
+            }
             time--;
         }, 0, 20);
     }
 
     public int getTaskID() {
         return taskID;
+    }
+
+    public int getTime() {
+        return time;
     }
 
 }

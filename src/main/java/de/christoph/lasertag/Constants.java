@@ -19,6 +19,8 @@ public class Constants {
     public static final String KILLED_PLAYER = "§aYou have killed the player §6%player%";
     public static final String SERVER_RESTART_IN = "§cThe server will restart in §6%time%§c.";
 
+    public static final String SCOREBOARD_TITLE = "§7§l● §a§lLaserTag §7§l●";
+
     public static final String LASER_WEAPON_NAME = "§c§lWeapon";
     public static final String PROJECTILE_CUSTOM_NAME = "laserWeaponProjectile";
 

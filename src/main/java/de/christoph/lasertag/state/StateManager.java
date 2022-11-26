@@ -1,7 +1,7 @@
 package de.christoph.lasertag.state;
 
+import de.christoph.lasertag.state.end.EndState;
 import de.christoph.lasertag.state.game.GameState;
-import de.christoph.lasertag.state.game.end.EndState;
 import de.christoph.lasertag.state.lobby.LobbyState;
 
 public class StateManager {

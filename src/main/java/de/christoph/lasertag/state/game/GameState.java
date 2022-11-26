@@ -2,7 +2,7 @@ package de.christoph.lasertag.state.game;
 
 import de.christoph.lasertag.Constants;
 import de.christoph.lasertag.LaserTag;
-import de.christoph.lasertag.state.game.end.EndState;
+import de.christoph.lasertag.state.end.EndState;
 import de.christoph.lasertag.state.game.weapon.LaserWeapon;
 import de.christoph.lasertag.utils.LocationUtil;
 import org.bukkit.Bukkit;
@@ -33,6 +33,7 @@ public class GameState {
     }
 
     public void endProtectionTime() {
+        Bukkit.getScheduler().cancelTask(protectionCountdown.getTaskID());
         protectionCountdown = null;
         for(Player all : Bukkit.getOnlinePlayers()) {
             for (int i = 0; i < 150; i++)
@@ -61,6 +62,10 @@ public class GameState {
 
     public ProtectionCountdown getProtectionCountdown() {
         return protectionCountdown;
+    }
+
+    public GameCountdown getGameCountdown() {
+        return gameCountdown;
     }
 
 }

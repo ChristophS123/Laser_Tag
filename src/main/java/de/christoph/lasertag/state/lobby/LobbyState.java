@@ -37,4 +37,8 @@ public class LobbyState {
         LaserTag.getPlugin().getStateManager().setGameState(gameState);
     }
 
+    public LobbyCountdown getLobbyCountdown() {
+        return lobbyCountdown;
+    }
+
 }

@@ -1,6 +1,7 @@
-package de.christoph.lasertag.state.game.end;
+package de.christoph.lasertag.state.end;
 
 import de.christoph.lasertag.LaserTag;
+import de.christoph.lasertag.scoreboard.LaserTagBoard;
 import de.christoph.lasertag.utils.LocationUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
@@ -16,8 +17,10 @@ public class EndState {
     private EndCountdown endCountdown = null;
 
     public EndState() {
-        for(Player all : Bukkit.getOnlinePlayers())
+        for(Player all : Bukkit.getOnlinePlayers()) {
             all.teleport(LocationUtil.getLocation("lobbyspawn", LaserTag.getPlugin()));
+            LaserTagBoard.setEndBoard(all);
+        }
         endCountdown = new EndCountdown();
         showResult();
     }
@@ -37,7 +40,7 @@ public class EndState {
         }
     }
 
-    private Map<Player, Integer> sortGamePlayers() {
+    public static Map<Player, Integer> sortGamePlayers() {
         return LaserTag.gamePlayers.entrySet().stream()
                 .sorted(Comparator.comparingInt(e -> e.getValue()))
                 .collect(Collectors.toMap(

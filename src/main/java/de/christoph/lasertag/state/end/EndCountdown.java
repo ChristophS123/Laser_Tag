@@ -1,7 +1,8 @@
-package de.christoph.lasertag.state.game.end;
+package de.christoph.lasertag.state.end;
 
 import de.christoph.lasertag.Constants;
 import de.christoph.lasertag.LaserTag;
+import de.christoph.lasertag.scoreboard.LaserTagBoard;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -34,6 +35,9 @@ public class EndCountdown {
                     break;
                 default:
                     break;
+            }
+            for(Player all : Bukkit.getOnlinePlayers()) {
+                LaserTagBoard.setEndBoard(all);
             }
             time--;
         }, 0, 20);
