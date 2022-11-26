@@ -2,6 +2,7 @@ package de.christoph.lasertag.state.game;
 
 import de.christoph.lasertag.Constants;
 import de.christoph.lasertag.LaserTag;
+import de.christoph.lasertag.state.game.end.EndState;
 import de.christoph.lasertag.state.game.weapon.LaserWeapon;
 import de.christoph.lasertag.utils.LocationUtil;
 import org.bukkit.Bukkit;
@@ -50,7 +51,8 @@ public class GameState {
 
     public void stopGame() {
         stopCountdown();
-        //TODO: Start End State
+        EndState endState = new EndState();
+        LaserTag.getPlugin().getStateManager().setEndState(endState);
     }
 
     private void stopCountdown() {

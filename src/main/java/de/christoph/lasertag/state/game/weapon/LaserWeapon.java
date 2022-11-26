@@ -31,6 +31,8 @@ public class LaserWeapon implements Listener {
     }
 
     private void shoot(Player player) {
+        if(LaserTag.getPlugin().getStateManager().getGameState().getProtectionCountdown() != null)
+            return;
         Snowball projectile = player.launchProjectile(Snowball.class);
         projectile.setCustomName(Constants.PROJECTILE_CUSTOM_NAME);
         projectile.setVelocity(projectile.getVelocity().multiply(3F));
@@ -52,10 +54,8 @@ public class LaserWeapon implements Listener {
 
     @EventHandler
     public void onPlayerDamage(EntityDamageByEntityEvent event) {
-        System.out.println("test");
         if(event.getCause() != EntityDamageEvent.DamageCause.PROJECTILE)
             return;
-        System.out.println("test1");
         if(!(event.getDamager() instanceof Projectile) || !(event.getEntity() instanceof Player))
             return;
         Projectile projectile = (Projectile) event.getDamager();

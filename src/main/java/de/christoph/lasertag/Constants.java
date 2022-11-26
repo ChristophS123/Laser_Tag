@@ -17,6 +17,7 @@ public class Constants {
     public static final String LOBBY_TIME_END = "§aThe game starts in §6%time% seconds§a.";
     public static final String GOT_KILLED = "§cYou have been killed by §6%player%";
     public static final String KILLED_PLAYER = "§aYou have killed the player §6%player%";
+    public static final String SERVER_RESTART_IN = "§cThe server will restart in §6%time%§c.";
 
     public static final String LASER_WEAPON_NAME = "§c§lWeapon";
     public static final String PROJECTILE_CUSTOM_NAME = "laserWeaponProjectile";
@@ -24,6 +25,7 @@ public class Constants {
     public static final int LOBBY_COUNTDOWN_SECONDS = 10;
     public static final int GAME_TIME = 20;
     public static final int PROTECTION_TIME = 10;
+    public static final int RESTART_TIME = 10;
 
     public static final int MIN_PLAYERS = 2;
     public static final int MAY_PLAYERS = 10;
