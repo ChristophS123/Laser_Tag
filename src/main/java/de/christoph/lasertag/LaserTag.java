@@ -1,5 +1,6 @@
 package de.christoph.lasertag;
 
+import de.christoph.lasertag.protection.ProtectionListeners;
 import de.christoph.lasertag.setup.SetupCommand;
 import de.christoph.lasertag.state.StateManager;
 import de.christoph.lasertag.state.game.GameListeners;
@@ -38,6 +39,7 @@ public class LaserTag extends JavaPlugin {
         pluginManager.registerEvents(new LobbyListeners(), this);
         pluginManager.registerEvents(new GameListeners(), this);
         pluginManager.registerEvents(new LaserWeapon(), this);
+        pluginManager.registerEvents(new ProtectionListeners(), this);
     }
 
     public static LaserTag getPlugin() {

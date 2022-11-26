@@ -31,7 +31,7 @@ public class EndCountdown {
                     }
                     break;
                 case 0:
-                    //TODO: Stop Server
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
                     break;
                 default:
                     break;
