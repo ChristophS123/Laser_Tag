@@ -16,8 +16,11 @@ public class LaserTagBoard {
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         objective.setDisplayName(Constants.SCOREBOARD_TITLE);
         objective.getScore(" ").setScore(4);
-        objective.getScore("§a§lLobby State:").setScore(3);
-        objective.getScore("§6 > " + time).setScore(2);
+        objective.getScore(Constants.LOBBY_STATE_SCOREBOARD).setScore(3);
+        if(LaserTag.gamePlayers.size() >= Constants.MIN_PLAYERS)
+            objective.getScore("§6 > " + time).setScore(2);
+        else
+            objective.getScore(Constants.WAITING_FOR_PLAYERS_SCOREBOARD).setScore(2);
         objective.getScore("  ").setScore(1);
         player.setScoreboard(scoreboard);
     }
@@ -28,7 +31,7 @@ public class LaserTagBoard {
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         objective.setDisplayName(Constants.SCOREBOARD_TITLE);
         objective.getScore(" ").setScore(4);
-        objective.getScore("§a§lProtectionTime:").setScore(3);
+        objective.getScore(Constants.PROTECTION_TIME_SCOREBOARD).setScore(3);
         objective.getScore("§6 > " + time).setScore(2);
         objective.getScore("  ").setScore(1);
         player.setScoreboard(scoreboard);
@@ -40,7 +43,7 @@ public class LaserTagBoard {
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         objective.setDisplayName(Constants.SCOREBOARD_TITLE);
         objective.getScore(" ").setScore(7);
-        objective.getScore("§a§lGame:").setScore(6);
+        objective.getScore(Constants.GAME_SCOREBOARD).setScore(6);
         objective.getScore("§6 > " + time).setScore(5);
         objective.getScore("  ").setScore(4);
         if(LaserTag.gamePlayers.containsKey(player)) {
@@ -58,7 +61,7 @@ public class LaserTagBoard {
         objective.setDisplayName(Constants.SCOREBOARD_TITLE);
         objective.getScore("  ").setScore(4);
         if(LaserTag.gamePlayers.containsKey(player)) {
-            objective.getScore("§a§lKills:").setScore(3);
+            objective.getScore(Constants.KILLS_SCOREBOARD).setScore(3);
             objective.getScore("§6 > " + LaserTag.gamePlayers.get(player)).setScore(2);
             objective.getScore("   ").setScore(1);
         } else {

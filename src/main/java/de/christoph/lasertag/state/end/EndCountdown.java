@@ -19,7 +19,6 @@ public class EndCountdown {
     private void startCountdown() {
         taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(LaserTag.getPlugin(), () -> {
             switch (time) {
-                case Constants.RESTART_TIME:
                 case 30:
                 case 5:
                 case 3:

@@ -19,7 +19,6 @@ public class ProtectionCountdown {
     private void start() {
         taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(LaserTag.getPlugin(), () -> {
             switch (time) {
-                case Constants.PROTECTION_TIME:
                 case 15:
                 case 5:
                 case 3:

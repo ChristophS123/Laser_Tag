@@ -20,7 +20,6 @@ public class LobbyCountdown {
     private void startCountdown() {
         taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(LaserTag.getPlugin(), () -> {
             switch (time) {
-                case Constants.LOBBY_COUNTDOWN_SECONDS:
                 case 30:
                 case 5:
                 case 3:

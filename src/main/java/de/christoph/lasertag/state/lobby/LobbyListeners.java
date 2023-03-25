@@ -25,7 +25,7 @@ public class LobbyListeners implements Listener {
             event.getPlayer().teleport(LocationUtil.getLocation("lobbyspawn", LaserTag.getPlugin()));
         } else
             Bukkit.getConsoleSender().sendMessage(Constants.PREFIX + Constants.SETUP_NOT_FINISHED);
-        if(LaserTag.gamePlayers.size() < Constants.MAY_PLAYERS) {
+        if(LaserTag.gamePlayers.size() < Constants.MAX_PLAYERS) {
             LaserTag.gamePlayers.put(event.getPlayer(), 0);
             LaserTag.getPlugin().getStateManager().getLobbyState().checkForCountdownStart();
         } else {

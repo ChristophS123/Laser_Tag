@@ -19,7 +19,6 @@ public class GameCountdown {
     private void start() {
         taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(LaserTag.getPlugin(), () -> {
             switch (time) {
-                case Constants.GAME_TIME:
                 case 30:
                 case 15:
                 case 10:
